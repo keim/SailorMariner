@@ -3,14 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>セーラーマリナー＋１が踊る Unity WebGLビルド 負荷テスト</title>
+    <title>Unity WebGL Player | Sailor Mariner's Crazy Sexy</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
-      <div>セーラーマリナー＋１が踊る Unity WebGLビルド 負荷テスト</div>
-      <canvas id="unity-canvas" width=960 height=600></canvas>
+      <canvas id="unity-canvas" width=960 height=540></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
@@ -21,7 +20,7 @@
       <div id="unity-footer">
         <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title"> 📹 マウスドラッグでカメラ移動 </div>
+        <div id="unity-build-title">Sailor Mariner's Crazy Sexy</div>
       </div>
     </div>
     <script>
@@ -57,15 +56,15 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/dist.loader.js";
+      var loaderUrl = buildUrl + "/dist_lowres.loader.js";
       var config = {
-        dataUrl: buildUrl + "/dist.data",
-        frameworkUrl: buildUrl + "/dist.framework.js",
-        codeUrl: buildUrl + "/dist.wasm",
+        dataUrl: buildUrl + "/dist_lowres.data",
+        frameworkUrl: buildUrl + "/dist_lowres.framework.js",
+        codeUrl: buildUrl + "/dist_lowres.wasm",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "DefaultCompany",
-        productName: "ProjectCS",
-        productVersion: "0.1",
+        companyName: "Sound Impulse",
+        productName: "Sailor Mariner's Crazy Sexy",
+        productVersion: "1.1.3",
         showBanner: unityShowBanner,
       };
 
@@ -78,7 +77,6 @@
 
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         // Mobile device style: fill the whole browser client area with the game canvas:
-
         var meta = document.createElement('meta');
         meta.name = 'viewport';
         meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
@@ -87,7 +85,7 @@
 
         // To lower canvas resolution on mobile devices to gain some
         // performance, uncomment the following line:
-        // config.devicePixelRatio = 1;
+        config.devicePixelRatio = 1;
 
         canvas.style.width = window.innerWidth + 'px';
         canvas.style.height = window.innerHeight + 'px';
@@ -95,7 +93,7 @@
         // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
 
         canvas.style.width = "960px";
-        canvas.style.height = "600px";
+        canvas.style.height = "540px";
       }
 
       loadingBar.style.display = "block";
